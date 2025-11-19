@@ -1,2 +1,2 @@
 #!/bin/bash
-rm -f ./data/clean/*.csv
+rm -f ./data/{prediction,clean}/*.csv

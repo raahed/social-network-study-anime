@@ -12,15 +12,15 @@ TOP_N = 5
 K_NEIGHBORS = 25
 MIN_OVERLAP = 6
 
-OUTPUT_FILE = "recommendations_output.csv"
+OUTPUT_FILE = "../prediction/users-recommendations.csv"
 
 # -------------------------
 #  DATA LOADING
 # -------------------------
 
-anime_df = pd.read_csv("/Users/niklaskunzmann/IdeaProjects/social-network-study-anime/data/clean/anime-dataset-filtered.csv")
-watch_2023 = pd.read_csv("/Users/niklaskunzmann/IdeaProjects/social-network-study-anime/data/clean/users-score-shrunk-2023.csv")
-watch_2025 = pd.read_csv("/Users/niklaskunzmann/IdeaProjects/social-network-study-anime/data/clean/users-score-shrunk-2025.csv")
+anime_df = pd.read_csv("../data/clean/anime-dataset-filtered.csv")
+watch_2023 = pd.read_csv("../data/clean/users-score-shrunk-2023.csv")
+watch_2025 = pd.read_csv("../data/clean/users-score-shrunk-2025.csv")
 
 rating_matrix = watch_2023.pivot_table(
     index="user_id",

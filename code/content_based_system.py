@@ -20,16 +20,16 @@ TOP_N = 10  # konsistent
 MAX_USERS_FOR_TEST = None   # None = alle Nutzer
 
 # Basis-Pfad zu deinem Datenordner
-DATA_DIR = "/Users/lubovschlundt/Desktop/TH Nürnberg/2. Semester/Soziale Netzwerkanalyse/data"
+DATA_DIR = "../data"
 
 
 # ---------------------------------------------------------
 # 2. DATEN LADEN
 # ---------------------------------------------------------
 
-anime_df = pd.read_csv(f"{DATA_DIR}/anime-dataset-filtered.csv")
-watch_2023 = pd.read_csv(f"{DATA_DIR}/users-score-shrunk-2023.csv")
-watch_2025 = pd.read_csv(f"{DATA_DIR}/users-score-shrunk-2025.csv")
+anime_df = pd.read_csv(f"{DATA_DIR}/clean/anime-dataset-filtered.csv")
+watch_2023 = pd.read_csv(f"{DATA_DIR}/clean/users-score-shrunk-2023.csv")
+watch_2025 = pd.read_csv(f"{DATA_DIR}/clean/users-score-shrunk-2025.csv")
 
 print(f"Anime-Datensatz: {anime_df.shape[0]} Einträge")
 print(f"Ratings 2023:    {watch_2023.shape[0]} Einträge")
@@ -259,7 +259,7 @@ for uid in tqdm(eligible_users_cb, desc="Evaluating users (content-based)"):
         })
 
 # Ergebnisse in CSV im gleichen Ordner wie die Input-Dateien speichern
-output_path = f"{DATA_DIR}/content_based_results_flat.csv"
+output_path = f"{DATA_DIR}/prediction/content-recommendations.csv"
 results_df = pd.DataFrame(rows_out)
 results_df.to_csv(output_path, index=False)
 print(f"Detailergebnisse (eine Zeile pro Vorhersage) wurden gespeichert unter:\n{output_path}")
